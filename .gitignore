@@ -1,0 +1,25 @@
+# Convenience only: publication must use the separately reviewed file whitelist.
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+.env
+.env.*
+*.pem
+*.key
+*.mat
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.zip
+private_review/
+_inputs/
+cache/
+.github/workflows/
