@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img">
+<title>Saved decision loss: group criterion not met</title>
+<desc>Visualization of saved summaries, not a new analysis. Source: results/primary_saved_results.csv. Exact source values: [{"record_id":"T_J","estimate":"0.1838348765432099","interval_lower":"0.10688411998237957","interval_upper":"0.26078563310404024","interval_type":"ordinary two-sided t"},{"record_id":"H_J","estimate":"0.18452932098765432","interval_lower":"0.10629624892673273","interval_upper":"0.2627623930485759","interval_type":"ordinary two-sided t"}]</desc>
+<rect width="1600" height="1200" fill="white"/>
+<text x="80.000000" y="48.000000" font-family="Arial, Arial, sans-serif" font-size="20" font-weight="700" text-anchor="start" fill="#465968">DREC01  /  SAVED PRIMARY RESULTS  /  FIGURE 03</text>
+<text x="80.000000" y="107.000000" font-family="Arial, Arial, sans-serif" font-size="39" font-weight="700" text-anchor="start" fill="#172b3a">Saved decision loss: group criterion not met</text>
+<text x="80.000000" y="155.000000" font-family="Arial, Arial, sans-serif" font-size="24" font-weight="400" text-anchor="start" fill="#465968">Points: saved means. Lines: ordinary two-sided 95% t intervals.</text>
+<text x="80.000000" y="189.000000" font-family="Arial, Arial, sans-serif" font-size="24" font-weight="400" text-anchor="start" fill="#465968">The prespecified group criterion concerns an interval endpoint, not the mean.</text>
+<line x1="480.000000" y1="292.000000" x2="480.000000" y2="660.000000" stroke="#dce3e8" stroke-width="1"/>
+<line x1="480.000000" y1="660.000000" x2="480.000000" y2="668.000000" stroke="#172b3a" stroke-width="2"/>
+<text x="480.000000" y="698.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#465968">0</text>
+<line x1="636.250000" y1="292.000000" x2="636.250000" y2="660.000000" stroke="#dce3e8" stroke-width="1"/>
+<line x1="636.250000" y1="660.000000" x2="636.250000" y2="668.000000" stroke="#172b3a" stroke-width="2"/>
+<text x="636.250000" y="698.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#465968">0.05</text>
+<line x1="792.500000" y1="292.000000" x2="792.500000" y2="660.000000" stroke="#dce3e8" stroke-width="1"/>
+<line x1="792.500000" y1="660.000000" x2="792.500000" y2="668.000000" stroke="#172b3a" stroke-width="2"/>
+<text x="792.500000" y="698.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#465968">0.10</text>
+<line x1="948.750000" y1="292.000000" x2="948.750000" y2="660.000000" stroke="#dce3e8" stroke-width="1"/>
+<line x1="948.750000" y1="660.000000" x2="948.750000" y2="668.000000" stroke="#172b3a" stroke-width="2"/>
+<text x="948.750000" y="698.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#465968">0.15</text>
+<line x1="1105.000000" y1="292.000000" x2="1105.000000" y2="660.000000" stroke="#dce3e8" stroke-width="1"/>
+<line x1="1105.000000" y1="660.000000" x2="1105.000000" y2="668.000000" stroke="#172b3a" stroke-width="2"/>
+<text x="1105.000000" y="698.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#465968">0.20</text>
+<line x1="1261.250000" y1="292.000000" x2="1261.250000" y2="660.000000" stroke="#dce3e8" stroke-width="1"/>
+<line x1="1261.250000" y1="660.000000" x2="1261.250000" y2="668.000000" stroke="#172b3a" stroke-width="2"/>
+<text x="1261.250000" y="698.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#465968">0.25</text>
+<line x1="1417.500000" y1="292.000000" x2="1417.500000" y2="660.000000" stroke="#dce3e8" stroke-width="1"/>
+<line x1="1417.500000" y1="660.000000" x2="1417.500000" y2="668.000000" stroke="#172b3a" stroke-width="2"/>
+<text x="1417.500000" y="698.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="middle" fill="#465968">0.30</text>
+<line x1="480.000000" y1="660.000000" x2="1480.000000" y2="660.000000" stroke="#172b3a" stroke-width="2"/>
+<text x="980.000000" y="748.000000" font-family="Arial, Arial, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#172b3a">Proxy decision loss J (dimensionless)</text>
+<line x1="1105.000000" y1="292.000000" x2="1105.000000" y2="660.000000" stroke="#172b3a" stroke-width="3" stroke-dasharray="10 7"/>
+<text x="1105.000000" y="261.000000" font-family="Arial, Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#172b3a">Boundary: 0.20</text>
+<text x="80.000000" y="349.000000" font-family="Arial, Arial, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#172b3a">Scalar-temperature</text>
+<text x="80.000000" y="382.800000" font-family="Arial, Arial, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#172b3a">recalibration (T)</text>
+<line x1="814.012875" y1="354.000000" x2="1294.955103" y2="354.000000" stroke="#172b3a" stroke-width="5"/>
+<line x1="814.012875" y1="340.000000" x2="814.012875" y2="368.000000" stroke="#172b3a" stroke-width="3"/>
+<line x1="1294.955103" y1="340.000000" x2="1294.955103" y2="368.000000" stroke="#172b3a" stroke-width="3"/>
+<circle cx="1054.483989" cy="354.000000" r="9" fill="#176579" stroke="#172b3a" stroke-width="2"/>
+<rect x="724.500000" y="393.500000" width="510.500000" height="34.500000" fill="white"/>
+<text x="980.000000" y="417.000000" font-family="Arial, Arial, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#172b3a">Mean 0.1838  |  95% t interval [0.1069, 0.2608]</text>
+<text x="80.000000" y="513.000000" font-family="Arial, Arial, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#172b3a">Regularized classification-</text>
+<text x="80.000000" y="546.800000" font-family="Arial, Arial, sans-serif" font-size="26" font-weight="400" text-anchor="start" fill="#172b3a">head update (H)</text>
+<line x1="812.175778" y1="518.000000" x2="1301.132478" y2="518.000000" stroke="#172b3a" stroke-width="5"/>
+<line x1="812.175778" y1="504.000000" x2="812.175778" y2="532.000000" stroke="#172b3a" stroke-width="3"/>
+<line x1="1301.132478" y1="504.000000" x2="1301.132478" y2="532.000000" stroke="#172b3a" stroke-width="3"/>
+<rect x="1047.654128" y="509.000000" width="18" height="18" fill="white" stroke="#172b3a" stroke-width="3"/>
+<rect x="724.500000" y="557.500000" width="510.500000" height="34.500000" fill="white"/>
+<text x="980.000000" y="581.000000" font-family="Arial, Arial, sans-serif" font-size="24" font-weight="400" text-anchor="middle" fill="#172b3a">Mean 0.1845  |  95% t interval [0.1063, 0.2628]</text>
+<line x1="80.000000" y1="780.000000" x2="1520.000000" y2="780.000000" stroke="#dce3e8" stroke-width="2"/>
+<text x="80.000000" y="822.000000" font-family="Arial, Arial, sans-serif" font-size="24" font-weight="700" text-anchor="start" fill="#172b3a">REQUIRED: INTERVAL UPPER ENDPOINT STRICTLY BELOW 0.20</text>
+<text x="80.000000" y="860.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="start" fill="#172b3a">Both methods failed this criterion, although their means are below 0.20.</text>
+<text x="80.000000" y="892.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="start" fill="#172b3a">Interval overlap is not used to infer a new difference test.</text>
+<text x="80.000000" y="924.000000" font-family="Arial, Arial, sans-serif" font-size="23" font-weight="400" text-anchor="start" fill="#172b3a">J is an artificial decision proxy, not a human or clinical outcome.</text>
+<text x="80.000000" y="972.000000" font-family="Arial, Arial, sans-serif" font-size="22" font-weight="400" text-anchor="start" fill="#465968">Primary nominal budget 10 | Fixed prefix 40 | Deferral cost 0.25 | Acceptance probability ≥ 0.75</text>
+<text x="80.000000" y="1007.000000" font-family="Arial, Arial, sans-serif" font-size="22" font-weight="400" text-anchor="start" fill="#465968">Independent n = 9 people; neural seeds were averaged within each person.</text>
+<text x="80.000000" y="1042.000000" font-family="Arial, Arial, sans-serif" font-size="22" font-weight="400" text-anchor="start" fill="#465968">Actual labels received/used and the complete event chain remain incompletely verified.</text>
+<text x="80.000000" y="1080.000000" font-family="Arial, Arial, sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#465968">J = (accepted errors + 0.25 × deferrals) / all evaluation opportunities; technical-invalid counts as defer.</text>
+<text x="80.000000" y="1112.000000" font-family="Arial, Arial, sans-serif" font-size="21" font-weight="400" text-anchor="start" fill="#465968">Visualization of saved summaries, not a new analysis; no mean or interval was recalculated.</text>
+<text x="80.000000" y="1148.000000" font-family="Arial, Arial, sans-serif" font-size="19" font-weight="400" text-anchor="start" fill="#465968">REVIEWED_WITH_UNRESOLVED_GAPS | publishable_as_pilot_results=false</text>
+<text x="80.000000" y="1180.000000" font-family="Arial, Arial, sans-serif" font-size="18" font-weight="400" text-anchor="start" fill="#465968">Source: primary_saved_results.csv | record_id: T_J, H_J</text>
+</svg>

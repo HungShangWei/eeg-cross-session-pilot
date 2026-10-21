@@ -18,6 +18,23 @@ At deferral cost 0.25 and a top-class acceptance probability of at least 0.75, t
 
 Decision loss and coverage are artificial proxies, not measurements of human burden, clinical harm, or robot benefit. Incomplete label-use accounts and event-chain evidence qualify these interpretations. See the [saved values and their original intervals](results/README.md) and [methods and limitations](docs/PILOT_METHODS_AND_LIMITATIONS.md).
 
+<!-- BEGIN SAVED_VISUALS_V1 -->
+### Visualizing the saved summaries
+
+Visualization of saved summaries, not a new analysis. The non-inferiority component was supported at the saved-summary and prespecified-rule level, but neither method met the prespecified usefulness criteria. Incomplete label-use and event-chain evidence still qualify interpretation.
+
+![Saved T-minus-H proxy loss difference and ordinary two-sided 95% t interval, with zero and the 0.02 non-inferiority margin](figures/01_saved_loss_difference.png)
+
+**Figure 1.** Scalar-temperature recalibration (T) minus regularized classification-head update (H). The point and interval are saved values. A negative difference means lower proxy loss for T only; support for the non-inferiority component does not establish equivalence, superiority, or practical success. [Scalable SVG](figures/01_saved_loss_difference.svg).
+
+![Saved counts: scalar-temperature recalibration and regularized classification-head update each have 5 of 9 participants meeting individual usefulness criteria, below the required 7 of 9](figures/02_participant_usefulness.png)
+
+**Figure 2.** Each participant must satisfy both loss J≤0.20 and coverage C≥0.50. Each method has 5 of 9 qualifying participants, short of the required 7 of 9; both group interval criteria also failed. No count intervals were supplied. These totals do not identify the participants or show whether the same five qualified for both methods. [Scalable SVG](figures/02_participant_usefulness.svg).
+
+The [saved decision-loss figure](results/README.md#saved-decision-loss-and-coverage) and [saved coverage figure](results/README.md#saved-coverage) display the separate group criteria. [Figure captions, source fields, and redraw instructions](figures/README.md) document this display-only addition; the plotting script is not an experiment-reproduction entry point.
+
+<!-- END SAVED_VISUALS_V1 -->
+
 ## My contribution
 
 For this pilot, I framed the question, chose comparisons, coordinated execution and reviewed the results; AI tools assisted with code integration and debugging.

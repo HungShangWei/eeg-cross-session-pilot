@@ -14,6 +14,25 @@
 
 All records concern the primary nominal budget **10**, fixed target prefix **40**, deferral cost **0.25**, and top-class acceptance probability **≥0.75**. Actual labels received and used are not established by the nominal budget. T is scalar-temperature recalibration; H is a regularized classification-head update.
 
+<!-- BEGIN SAVED_VISUALS_V1 -->
+## Saved decision loss and coverage
+
+These figures display the existing table, with **ordinary two-sided 95% t intervals** copied from the public CSV. T is scalar-temperature recalibration; H is regularized classification-head update. No mean or interval is recalculated. The primary nominal budget remains 10, prefix 40, deferral cost 0.25, and acceptance probability at least 0.75; actual labels received and used remain incompletely verified. The independent unit remains nine people, after within-person neural-seed averaging.
+
+![Saved T and H proxy decision-loss means and ordinary two-sided 95% t intervals; both upper endpoints exceed the 0.20 boundary](../figures/03_saved_decision_loss.png)
+
+**Figure 3.** The group condition requires the **interval upper endpoint strictly below 0.20**, not a mean below 0.20. Both methods failed this condition. Interval overlap is not used to infer a new difference test. J is (accepted errors + 0.25 × deferrals) / all evaluation opportunities; technical-invalid opportunities stay in the denominator as deferrals. J is an artificial decision proxy, not a human or clinical outcome. [Scalable SVG](../figures/03_saved_decision_loss.svg).
+
+### Saved coverage
+
+![Saved T and H coverage means and ordinary two-sided 95% t intervals on a zero-to-one scale; both lower endpoints lie below the 0.50 boundary](../figures/04_saved_coverage.png)
+
+**Figure 4.** The group condition requires the **interval lower endpoint strictly above 0.50**, not a mean above 0.50. Both methods failed this condition. Coverage is the accepted share of all evaluation opportunities, including technical-invalid deferrals in the denominator; it is not classification accuracy or human success. The original zero-to-one scale is retained. [Scalable SVG](../figures/04_saved_coverage.svg).
+
+The [loss-difference and participant-count figures](../README.md#visualizing-the-saved-summaries) show the other saved primary components. See [figure captions, source fields, threshold provenance, and redraw instructions](../figures/README.md). All H-P1/H-P2 qualifications and scientific gaps below remain unchanged; the figures do not establish practical usefulness or reproduce the experiment.
+
+<!-- END SAVED_VISUALS_V1 -->
+
 ## How to read the table
 
 J is accepted errors plus deferral cost times deferrals, divided by **all evaluation opportunities**. C is the accepted share of those same opportunities. Technical-invalid opportunities remain in the denominator as deferrals. Q has 80 opportunities for participant 2 and 120 for each other participant in the reviewed record. Neural seeds are averaged within person, and people receive equal weight; this is not a pooled-trial estimate. The participant is the independent unit, n=9. Lower J is better under this proxy rule; higher C means more coverage. A negative T−H value favors T on J alone.
