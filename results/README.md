@@ -30,6 +30,12 @@ Full precision: [`group_estimates.csv`](group_estimates.csv). For example, the T
 
 The file stores group means in two places, `/primary/...` (used with the intervals) and `/summary/group/...`; they differ only in the last floating-point digits (for example 0.1838348765432099 and 0.18383487654320987 for T's J). Both are kept in the CSV, and neither was overwritten.
 
+## Saved T − H comparison
+
+![Saved R2 T minus H decision-loss difference, ordinary two-sided 95% t interval, zero and the 0.02 non-inferiority margin](figures/r2_loss_difference.png)
+
+Saved R2 values, displayed without a new analysis: T − H in decision loss J, with the ordinary two-sided 95% t interval (nine participants; three seeds averaged within each person). The numerical non-inferiority criterion was met; equivalence was not tested and usefulness criteria were not met. The point and interval come directly from `/primary/delta/mean` and `/primary/delta/two_sided95`; the 0.02 margin is `/NI_margin` in the frozen run configuration. Negative T − H values indicate lower proxy loss for T.
+
 ## Participant-level results
 
 Participant numbers are the dataset's anonymous identifiers (B01–B09). Each value is that participant's mean over three seeds.
@@ -52,7 +58,7 @@ Full precision: [`participant_results.csv`](participant_results.csv), taken dire
 
 ![Participant-level decision loss and coverage for T and H with the individual thresholds](figures/r2_participant_results.png)
 
-The figure ([`scripts/plot_participant_results.py`](../scripts/plot_participant_results.py)) plots the same nine rows. It is a display of saved values, not an additional analysis.
+The participant figure ([`scripts/plot_participant_results.py`](../scripts/plot_participant_results.py)) plots the same nine rows. It is a display of saved values, not an additional analysis. The stacked panels use larger labels for narrow displays. Extra space beyond the scale endpoints prevents marker clipping (including participant 3 near zero coverage); it does not represent negative coverage. T/H values, horizontal method offsets and the shaded participants are unchanged.
 
 ## Decision criteria and how the conclusion follows
 
@@ -85,4 +91,12 @@ python scripts/make_result_tables.py           # rewrite the three CSV files, pr
 python scripts/make_result_tables.py --check   # verify CSV files and the tables embedded in README.md and here
 ```
 
-Both commands need only the Python standard library and refuse to run if `primary_results.json` does not have the pinned SHA-256. The figure needs matplotlib. See [docs/REPRODUCIBILITY.md](../docs/REPRODUCIBILITY.md) for the other reproduction levels.
+Both commands need only the Python standard library and refuse to run if `primary_results.json` does not have the pinned SHA-256. The two figures need Matplotlib; the same plotting command produces both PNG files. See [docs/REPRODUCIBILITY.md](../docs/REPRODUCIBILITY.md) for the other reproduction levels.
+
+To draw both figures from the pinned saved JSON and frozen configuration (no research modules are imported):
+
+```bash
+python scripts/plot_participant_results.py
+```
+
+Outputs: `figures/r2_participant_results.png` and `figures/r2_loss_difference.png`.

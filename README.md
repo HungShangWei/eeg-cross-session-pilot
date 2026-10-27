@@ -29,7 +29,13 @@ The protocol, thresholds and decision rules were fixed before this execution ([m
 | Participants meeting J ≤ 0.20 and C ≥ 0.50 (T / H) | 5 / 5 of 9 | — | at least 7 of 9 | **no** / **no** |
 <!-- END GENERATED: group_table -->
 
+![Saved R2 T minus H decision-loss difference with its ordinary two-sided 95% t interval, zero line and 0.02 non-inferiority margin](results/figures/r2_loss_difference.png)
+
+Saved R2 values, displayed without a new analysis: T − H in decision loss J, with the ordinary two-sided 95% t interval (nine participants; three seeds averaged within each person). The numerical non-inferiority criterion was met; equivalence was not tested and usefulness criteria were not met.
+
 ![Participant-level decision loss and coverage for T and H, with the individual thresholds J ≤ 0.20 and C ≥ 0.50; the same five participants meet both thresholds under both methods](results/figures/r2_participant_results.png)
+
+The participant figure shows the individual saved values in stacked panels. Extra axis space prevents marker clipping, including near-zero coverage; it does not indicate negative coverage.
 
 **What this supports.** On the pre-specified numerical criterion, recalibration (T) was non-inferior to the head update (H): the upper end of the interval for the J difference lies well below the 0.02 margin. Equivalence was not tested. The protocol also required usefulness before T could be said to substitute for H: J ≤ 0.20 and C ≥ 0.50 in at least 7 of 9 participants, and group bounds below 0.20 for J and above 0.50 for C. Each method met the individual thresholds in only 5 of 9 participants and missed both group bounds. Usefulness was therefore not established (nor refuted), and substitution was not supported. The head update also failed to qualify as a useful fitted reference. Because both updates used the same ten labels, this pilot does not show that either one saves labels or shortens setup.
 

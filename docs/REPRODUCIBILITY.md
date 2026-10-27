@@ -2,15 +2,16 @@
 
 Three levels are listed separately, each with its inputs, environment, outputs and **tested status**. That the original R2 command succeeded on the author's machine does not mean the path-projected public copy has been run. It has not.
 
-## Level 1 — saved results → tables and figure (tested)
+## Level 1 — saved results → tables and figures (tested)
 
 | | |
 |---|---|
-| Input | `results/primary_results.json` (included; SHA-256 pinned in the scripts) |
-| Environment | Tables: Python ≥ 3.9, standard library only. Figure: additionally Matplotlib |
-| Commands | `python scripts/make_result_tables.py --check` (verify) · `python scripts/make_result_tables.py` (rewrite CSVs) · `python scripts/plot_participant_results.py` (figure) |
-| Outputs | `results/group_estimates.csv`, `results/participant_results.csv`, `results/decision_criteria.csv`, the tables embedded in `README.md` and `results/README.md`, `results/figures/r2_participant_results.png` |
+| Input | `results/primary_results.json` (included; SHA-256 pinned in the scripts); figures also read the pinned `code/r2/candidate/config/RUN_CONFIG_v1.json` for the non-inferiority margin |
+| Environment | Tables: Python ≥ 3.9, standard library only. Figures: additionally Matplotlib |
+| Commands | `python scripts/make_result_tables.py --check` (verify) · `python scripts/make_result_tables.py` (rewrite CSVs) · `python scripts/plot_participant_results.py` (both figures) |
+| Outputs | `results/group_estimates.csv`, `results/participant_results.csv`, `results/decision_criteria.csv`, the tables embedded in `README.md` and `results/README.md`, `results/figures/r2_participant_results.png`, `results/figures/r2_loss_difference.png` |
 | Status | Run for this showcase on 2026-10-27: the table script with Python 3.14.7, and the figure script with Matplotlib 3.11.2 from the R2 environment. No statistic is recomputed; the scripts only project and format saved fields. |
+| Visual update check | 2026-10-27 (Asia/Taipei): both PNGs generated with existing CPython 3.14.7, Matplotlib 3.11.2 and DejaVu Sans; the table check also passed. Only saved values and the frozen margin were read, with no new statistics or research execution. The original showcase record above is retained. |
 
 ```bash
 python scripts/make_result_tables.py --check
