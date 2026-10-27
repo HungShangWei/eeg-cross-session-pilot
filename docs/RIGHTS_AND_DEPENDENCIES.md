@@ -1,19 +1,29 @@
 # Rights and dependencies
 
-## Existing source notice
+This page states which terms apply to which files. It is a description, not legal advice.
 
-The seven Python modules under [code/mi_ops_fixed_tail_v1_1](../code/mi_ops_fixed_tail_v1_1/) are unchanged copies of selected local research source files. The originating repository contains an MIT License with `Copyright (c) 2026 Shang-Wei Hung`. Its complete text is retained, byte for byte, as [code/LICENSE](../code/LICENSE) for the copied source material. Original file headers and comments are preserved.
+## Licences chosen by the author
 
-This preparation does not choose a new license for the entire showcase, replace an existing license, or extend a software license to the EEG dataset. The candidate's overall licensing and any necessary third-party rights remain subject to review before a separately authorized publication. Existing applicable rights and notices remain in force. No dependency source, dependency binary, raw EEG, model weight, figure, or third-party document is bundled. The historical internal reference documents are not redistributed here.
+All three licence files below contain the same standard MIT License text, `Copyright (c) 2026 Shang-Wei Hung`. MIT permits use, copying, modification, distribution, sublicensing and sale, provided the copyright and permission notice is kept.
 
-## Dependency declarations retained in source
+- **[`code/LICENSE`](../code/LICENSE)** is unchanged from the earlier snapshot of this repository. There it was included for the seven source modules published on 2026-10-21, which remain available in Git history under that notice ([HISTORY.md](HISTORY.md)). Four of those modules are byte-identical to `code/r2/candidate/frozen/contracts_r1.py`, `frozen/inference_contract.py`, `frozen/inference_r1.py` and `frozen/statistics_recipe.py`; those four files continue under that existing licence.
+- **[`code/r2/LICENSE`](../code/r2/LICENSE)**: on 2026-10-27 the copyright holder chose to release under the MIT License all software, configuration files and the accompanying README in `code/r2/`, to the extent the copyright holder has the right to license them. This covers the whole `code/r2/candidate/` tree, not only the four files above.
+- **[`scripts/LICENSE`](../scripts/LICENSE)**: in a separate choice on the same date, the two display scripts `scripts/make_result_tables.py` and `scripts/plot_participant_results.py` are also released under the MIT License.
 
-Static inspection of the copied import statements identifies **NumPy** and **SciPy** (`scipy.stats.t`, `scipy.special.expit`), plus Python standard-library modules. Imports of local modules retain their original names and sibling layout. All local import targets appearing in this selected seven-file subset are present. The files originally used flat sibling imports; this is not a newly packaged Python distribution.
+These choices do not transfer copyright, and they do not cover any other or future work of the author.
 
-No package was installed, imported, upgraded, or executed for this preparation. Runtime versions and compatibility of this subset were not tested. A DREC01 environment lockfile is not included, and no version pins have been invented or borrowed from the legacy V1 requirements. The historical dependency manifest notes separate NumPy/SciPy environment metadata; this snapshot does not claim that environment has been reconstructed. External packages retain their own terms when obtained separately.
+**Not covered by these licences.** The MIT choices above do not apply to every kind of content in this repository. No licence is selected here for the root and `docs/` documentation, the result files and figure under `results/`, the bootstrap index matrix under `protocol/`, the data and environment notes, or the `.gitignore`; any rights that otherwise apply to them are unaffected. Third-party packages, the EEG dataset and other source materials keep their own terms, and nothing here relicenses them. The configuration files in `code/r2/candidate/config/` refer to dataset files by name and hash; the dataset itself is not included and is not relicensed.
 
-## Execution boundary
+Nothing in this repository extends a software licence to the EEG dataset.
 
-This is source for reading, not a complete runnable experiment. The modules contain scoring, statistical, and bootstrap functions, but none was called during preparation. No new runner or reproduction command has been added. Data loaders, model training, adaptation execution, orchestration, runtime capabilities, saved trial inputs, and complete execution records are absent. The preserved `score_synthetic` name and historical engineering comments do not mean that synthetic checks reproduced the DREC01 empirical chain; the [evidence map](CODE_AND_EVIDENCE_MAP.md) explains the limited static linkage.
+## Dataset
 
-The public `.gitignore` is a convenience only. It cannot remove prior Git history or authorize sharing files. Any later publication should use a separately approved clean snapshot of the fixed file whitelist, rather than the original research repository and its history.
+The recordings (BCI Competition IV dataset 2b, BNCI Horizon 2020 entry 004-2014) are **not included**. The source page states CC BY-ND 4.0 terms with Graz University of Technology as licensor. This repository publishes only aggregate statistics computed from the recordings and a matrix of participant indices; it does not redistribute the recordings or any modified version of them. See [data/README.md](../data/README.md) and [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
+
+## Dependencies
+
+No dependency source code or binary is bundled. The code imports NumPy, SciPy, PyTorch, scikit-learn and pyRiemann, plus the Python standard library. The optional figure script imports Matplotlib. Versions of the original run environment are pinned in [environment/](../environment/); licence identifiers are listed in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md). Installing these versions was not tested for this showcase.
+
+## What is deliberately not published
+
+Raw EEG and MAT files, per-trial labels, per-trial predictions, model states and weights, the run's full event ledgers (they contain label values), the seal file, the local approval record, internal planning and review documents, and any personal correspondence. The `.gitignore` file is a convenience only. It cannot remove anything from Git history or authorize sharing a file.

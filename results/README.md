@@ -1,52 +1,88 @@
-# Primary saved results
+# R2 results: group estimates, participant-level results, decision criteria
 
-[primary_saved_results.csv](primary_saved_results.csv) contains **seven records**: five saved point estimates with their original ordinary 95% t intervals, and two saved participant counts. It is a selected, path-sanitized projection of `S-FACTORS`, interpreted with `S-E4` §3 and `S-MASTER` §4. These source aliases and their identities are documented in the [evidence map](../docs/CODE_AND_EVIDENCE_MAP.md).
+All numbers on this page come from one saved file, [`primary_results.json`](primary_results.json), the scoring output of run `DREC01_CORE_VALIDATION_R2` (executed 2026-10-27). It is included byte for byte (16937 bytes, SHA-256 `55fdcec96d44fd73411f7c23b183cad7799a5fb5bbbd125cce8dc7224dde3152`). It holds aggregate counts and statistics only: no EEG, labels or per-trial predictions.
 
-| Quantity | Saved value | Ordinary 95% t interval |
-|---|---:|---|
-| T−H decision loss J | −0.000694444444444447 | [−0.00522386433735302, 0.0038349754484641252] |
-| T decision loss J | 0.1838348765432099 | [0.10688411998237957, 0.26078563310404024] |
-| T coverage C | 0.576388888888889 | [0.32398574895703375, 0.8287920288207442] |
-| H decision loss J | 0.18452932098765432 | [0.10629624892673273, 0.2627623930485759] |
-| H coverage C | 0.5995370370370371 | [0.3512736787514252, 0.847800395322649] |
-| T participants meeting both individual thresholds | 5 of 9 | Not provided |
-| H participants meeting both individual thresholds | 5 of 9 | Not provided |
+The tables below and the CSV files beside them are deterministic projections of that file made by [`scripts/make_result_tables.py`](../scripts/make_result_tables.py). Nothing was re-estimated. The CSV files keep the saved full precision, and the tables here round for reading.
 
-All records concern the primary nominal budget **10**, fixed target prefix **40**, deferral cost **0.25**, and top-class acceptance probability **≥0.75**. Actual labels received and used are not established by the nominal budget. T is scalar-temperature recalibration; H is a regularized classification-head update.
+## Definitions
 
-<!-- BEGIN SAVED_VISUALS_V1 -->
-## Saved decision loss and coverage
+- **T**: temperature recalibration. **H**: regularized classification-head update. Both used 10 permitted labels (budget d10).
+- **Acceptance rule**: accept a prediction if its top-class probability is ≥ 0.75, otherwise defer.
+- **Decision loss J** = (accepted errors + 0.25 × deferrals) / number of evaluation trials. Technically invalid outputs count as deferrals and stay in the denominator. Lower is better.
+- **Coverage C** = accepted predictions / number of evaluation trials. Higher is better.
+- **Aggregation**: for each participant, the three seeds are averaged with equal weight; then the nine participants are weighted equally. This averages scores, not probabilities (it is not an ensemble). The independent unit is the participant (n = 9).
+- **Intervals**: ordinary two-sided 95% t intervals with 8 degrees of freedom, computed in the run from the nine participant values.
 
-These figures display the existing table, with **ordinary two-sided 95% t intervals** copied from the public CSV. T is scalar-temperature recalibration; H is regularized classification-head update. No mean or interval is recalculated. The primary nominal budget remains 10, prefix 40, deferral cost 0.25, and acceptance probability at least 0.75; actual labels received and used remain incompletely verified. The independent unit remains nine people, after within-person neural-seed averaging.
+## Group estimates
 
-![Saved T and H proxy decision-loss means and ordinary two-sided 95% t intervals; both upper endpoints exceed the 0.20 boundary](../figures/03_saved_decision_loss.png)
+<!-- BEGIN GENERATED: group_table -->
+| Quantity | Mean | 95% t interval (df = 8) | Pre-specified criterion | Met |
+|---|---:|---:|---|---|
+| T decision loss J | 0.1838 | [0.1069, 0.2608] | group upper bound < 0.20 | **no** |
+| T coverage C | 0.5764 | [0.3240, 0.8288] | group lower bound > 0.50 | **no** |
+| H decision loss J | 0.1845 | [0.1063, 0.2628] | group upper bound < 0.20 | **no** |
+| H coverage C | 0.5995 | [0.3513, 0.8478] | group lower bound > 0.50 | **no** |
+| T − H difference in J | −0.00069 | [−0.00522, 0.00383] | non-inferiority: upper bound < 0.02 | yes |
+| Participants meeting J ≤ 0.20 and C ≥ 0.50 (T / H) | 5 / 5 of 9 | — | at least 7 of 9 | **no** / **no** |
+<!-- END GENERATED: group_table -->
 
-**Figure 3.** The group condition requires the **interval upper endpoint strictly below 0.20**, not a mean below 0.20. Both methods failed this condition. Interval overlap is not used to infer a new difference test. J is (accepted errors + 0.25 × deferrals) / all evaluation opportunities; technical-invalid opportunities stay in the denominator as deferrals. J is an artificial decision proxy, not a human or clinical outcome. [Scalable SVG](../figures/03_saved_decision_loss.svg).
+Full precision: [`group_estimates.csv`](group_estimates.csv). For example, the T − H difference in J is −0.000694444444444447 with interval [−0.00522386433735302, 0.0038349754484641252] (`/primary/delta`).
 
-### Saved coverage
+The file stores group means in two places, `/primary/...` (used with the intervals) and `/summary/group/...`; they differ only in the last floating-point digits (for example 0.1838348765432099 and 0.18383487654320987 for T's J). Both are kept in the CSV, and neither was overwritten.
 
-![Saved T and H coverage means and ordinary two-sided 95% t intervals on a zero-to-one scale; both lower endpoints lie below the 0.50 boundary](../figures/04_saved_coverage.png)
+## Participant-level results
 
-**Figure 4.** The group condition requires the **interval lower endpoint strictly above 0.50**, not a mean above 0.50. Both methods failed this condition. Coverage is the accepted share of all evaluation opportunities, including technical-invalid deferrals in the denominator; it is not classification accuracy or human success. The original zero-to-one scale is retained. [Scalable SVG](../figures/04_saved_coverage.svg).
+Participant numbers are the dataset's anonymous identifiers (B01–B09). Each value is that participant's mean over three seeds.
 
-The [loss-difference and participant-count figures](../README.md#visualizing-the-saved-summaries) show the other saved primary components. See [figure captions, source fields, threshold provenance, and redraw instructions](../figures/README.md). All H-P1/H-P2 qualifications and scientific gaps below remain unchanged; the figures do not establish practical usefulness or reproduce the experiment.
+<!-- BEGIN GENERATED: participant_table -->
+| Participant | Evaluation trials (Q) | T: J | H: J | T − H: J | T: C | H: C | T meets J ≤ 0.20 & C ≥ 0.50 | H meets J ≤ 0.20 & C ≥ 0.50 |
+|---:|---:|---:|---:|---:|---:|---:|:---:|:---:|
+| 1 | 120 | 0.3312 | 0.3312 | 0.0000 | 0.3972 | 0.5083 | no | no |
+| 2 | 80 | 0.2969 | 0.3052 | −0.0083 | 0.1625 | 0.1958 | no | no |
+| 3 | 120 | 0.2486 | 0.2507 | −0.0021 | 0.0056 | 0.0083 | no | no |
+| 4 | 120 | 0.0160 | 0.0167 | −0.0007 | 0.9806 | 0.9778 | yes | yes |
+| 5 | 120 | 0.1382 | 0.1375 | 0.0007 | 0.8361 | 0.8833 | yes | yes |
+| 6 | 120 | 0.2056 | 0.2146 | −0.0090 | 0.5667 | 0.5639 | no | no |
+| 7 | 120 | 0.1958 | 0.1847 | 0.0111 | 0.7500 | 0.7500 | yes | yes |
+| 8 | 120 | 0.1083 | 0.1069 | 0.0014 | 0.8333 | 0.8500 | yes | yes |
+| 9 | 120 | 0.1139 | 0.1132 | 0.0007 | 0.6556 | 0.6583 | yes | yes |
+<!-- END GENERATED: participant_table -->
 
-<!-- END SAVED_VISUALS_V1 -->
+Full precision: [`participant_results.csv`](participant_results.csv), taken directly from `/summary/participants`. The evaluation-trial count comes from `/instance_metrics` (the same for all six instances of a participant). The "meets" columns apply the fixed individual rule to the saved values; their totals (5 and 5) equal the saved counts `/primary/T_usefulness/participant_guard` and `/primary/H_usefulness/participant_guard`, which the script checks.
 
-## How to read the table
+![Participant-level decision loss and coverage for T and H with the individual thresholds](figures/r2_participant_results.png)
 
-J is accepted errors plus deferral cost times deferrals, divided by **all evaluation opportunities**. C is the accepted share of those same opportunities. Technical-invalid opportunities remain in the denominator as deferrals. Q has 80 opportunities for participant 2 and 120 for each other participant in the reviewed record. Neural seeds are averaged within person, and people receive equal weight; this is not a pooled-trial estimate. The participant is the independent unit, n=9. Lower J is better under this proxy rule; higher C means more coverage. A negative T−H value favors T on J alone.
+The figure ([`scripts/plot_participant_results.py`](../scripts/plot_participant_results.py)) plots the same nine rows. It is a display of saved values, not an additional analysis.
 
-The five intervals are the saved ordinary two-sided **95% t intervals** (df=8, tail alpha=0.025). They are not bootstrap or candidate-adjusted intervals. No mean, bound, guard count, or other statistic was recalculated. Original reported decimal strings are retained in the CSV, including all digits; this does not imply equally precise scientific certainty.
+## Decision criteria and how the conclusion follows
 
-The CSV keeps exact source field keys and source pointers for the point value and interval endpoints. `source_file_sha256_as_recorded` is the historical result-file identity reported by the supplied table, not a fresh hash of trial-level results. The source's private absolute filename is replaced by the safe alias `S-RESULT`. The reference table's own identity is `reference_table_sha256`. Original units, denominator annotation, transform, and missingness are retained in separate source columns; the more specific interpretation comes from `S-E4` §3. In particular, the source's generic “bootstrap bounds already saved” annotation does not make these selected t endpoints bootstrap intervals. The public projection is not byte-identical to the original CSV.
+| Requirement (fixed before the run) | T | H |
+|---|---|---|
+| Individual: J ≤ 0.20 and C ≥ 0.50 in at least 7 of 9 participants | 5 of 9: not met | 5 of 9: not met |
+| Group: upper bound of J < 0.20 | 0.2608: not met | 0.2628: not met |
+| Group: lower bound of C > 0.50 | 0.3240: not met | 0.3513: not met |
+| Active fit: at least 2 of 3 seeds with a completed, non-fallback fit in at least 6 of 9 participants (the fitted value may equal the source value) | 9 of 9: met | 9 of 9: met |
+| Non-inferiority of T to H: upper bound of T − H J difference < 0.02 | 0.0038: met | — |
 
-`NOT_PROVIDED` denotes an interval or interval metadata not supplied for the participant-count rows. A literal source `null` would remain missing, never zero; the seven selected point values contain no null. The supplied source documents report missing D_use, non-primary intervals, and other evidence gaps. This small table does not fill them or represent all saved results.
+- **Non-inferiority (numerical criterion)**: met (`/primary/NI` = `ESTABLISHED`). Equivalence was not tested, and this is not a superiority result.
+- **Usefulness of T**: not established (`/primary/T_usefulness/established` = false; reasons `J_bound_failed`, `C_bound_failed`, `7_of_9_failed`). Not established does not mean refuted.
+- **H as a useful fitted reference**: not qualified (`/primary/H_useful_fitted_reference` = false). This is reported alongside the result; it is not a fourth success condition.
+- **Overall**: the composite hypothesis that T can substitute for H (non-inferior and useful) is not supported. Saved composite label: `NI_T_USEFUL_NOT_ESTABLISHED__T0_H0_A1`. The suffix encodes T usefulness established = 0, H usefulness established = 0, T active-fit guard met = 1. It is unrelated to the provisional temperature called T0 in the methods.
+- **Robustness**: a percentile bootstrap over the fixed participant-resample matrix ([protocol/](../protocol/README.md)) could only downgrade the conclusion; its status is `no_bootstrap_upgrade`. Its saved intervals are listed in [`decision_criteria.csv`](decision_criteria.csv) and are a different interval type from the t intervals above.
 
-## Interpretation beside the numbers
+All rows, with their JSON pointers: [`decision_criteria.csv`](decision_criteria.csv).
 
-The upper T−H bound is below the prespecified non-inferiority margin **0.02**, supporting that single component at the saved-summary and rule level. It does not establish equivalence. Practical usefulness additionally required group upper J<0.20, group lower C>0.50, and at least 7/9 participants with individual J≤0.20 and C≥0.50. T and H each fail both group bounds and the participant guard. Complete H-P1 is unsupported; H's useful-reference qualification is also unestablished and is not a fourth H-P1 condition.
+## What the 54 instance rows are
 
-The compact table focuses on T/H. The broader reviewed result excludes only their specified H-P2 composite meaningful-gain claim against K, N, and EA-U. EA-L is inconclusive; the two no-label subclaims remain `NOT_EVALUABLE`. Complete numerical control comparisons and bootstrap results are not displayed, and no conclusion of universal label uselessness or method equivalence follows. [Methods and limitations](../docs/PILOT_METHODS_AND_LIMITATIONS.md) explain the remaining qualifications.
+`/instance_metrics` holds 54 rows (9 participants × 3 seeds × 2 methods) with accepted, accepted-wrong and deferred counts, the evaluation denominator, and per-instance J and C. They show where the participant means come from; they are not 54 independent observations. Ninety distinct session-4 trials supplied labels (10 per participant), and the 540 method-instance label receptions (54 × 10) re-use those trials; neither count increases the sample size.
 
-These are artificial decision proxies, not human or clinical outcomes. Incomplete actual label-use and event-chain evidence, offline preprocessing, prior data contact, and the absence of a reproduced chain constrain all interpretations. Scientific status remains `REVIEWED_WITH_UNRESOLVED_GAPS`; `publishable_as_pilot_results=false`.
+`/independent_primary_check` holds a second implementation of the same statistics computed by the run from the same saved values; it agrees with `/primary` within the run's stated tolerances.
+
+## How to regenerate or verify
+
+```bash
+python scripts/make_result_tables.py           # rewrite the three CSV files, print the Markdown tables
+python scripts/make_result_tables.py --check   # verify CSV files and the tables embedded in README.md and here
+```
+
+Both commands need only the Python standard library and refuse to run if `primary_results.json` does not have the pinned SHA-256. The figure needs matplotlib. See [docs/REPRODUCIBILITY.md](../docs/REPRODUCIBILITY.md) for the other reproduction levels.
